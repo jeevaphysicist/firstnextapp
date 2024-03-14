@@ -19,7 +19,7 @@ const Nav = () => {
     }
     // console.log("providers",providers)
   return (
-    <div className='flex items-center justify-between gap-5 p-5'>
+    <div className='flex sticky top-0 bg-white z-50 items-center justify-between gap-5 p-5'>
         <Link href='/'>Home</Link> 
         
        
