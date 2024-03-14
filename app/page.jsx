@@ -1,7 +1,11 @@
 "use client"
 import React, { Fragment, useEffect, useState } from 'react'
-// import 'quill/dist/quill.bubble.css'
-// import ReactQuill from 'react-quill'
+import 'quill/dist/quill.bubble.css'
+import dynamic from 'next/dynamic'; // Import dynamic from next/dynamic
+
+const ReactQuill = dynamic(() => import('react-quill'), { // Dynamically import ReactQuill
+  ssr: false, // Disable server-side rendering
+}); 
 
 const Page = () => {
   const [blogs,setBlogs] = useState([]);
@@ -34,7 +38,7 @@ const Page = () => {
     <Fragment>
     <div className='text-[50px] px-10 h-[5vh] flex items-center justify-center'>Blogs</div>
     <div className='grid px-5 md:px-10 mt-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-10'>
-       {/* {
+       {
        blogs.length > 0 && blogs.map(post=>
        <div className='border '> 
         <ReactQuill
@@ -48,7 +52,7 @@ const Page = () => {
       </div>
           
       )
-      } */}
+      }
     </div>
     </Fragment>
   )
