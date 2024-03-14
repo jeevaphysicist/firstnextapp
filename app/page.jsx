@@ -2,6 +2,7 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import 'quill/dist/quill.bubble.css'
 import dynamic from 'next/dynamic'; // Import dynamic from next/dynamic
+import Link from 'next/link';
 
 const ReactQuill = dynamic(() => import('react-quill'), { // Dynamically import ReactQuill
   ssr: false, // Disable server-side rendering
@@ -40,7 +41,7 @@ const Page = () => {
     <div className='grid px-5 md:px-10 mt-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-10'>
        {
        blogs.length > 0 && blogs.map(post=>
-       <div className='border '> 
+       <Link href={`/blog/q?id=${post._id}`} className='border '> 
         <ReactQuill
         value={extractFirstParagraph(post.blogdata)}
         readOnly={true}
@@ -49,7 +50,7 @@ const Page = () => {
         modules={{ toolbar: false }}
       />
         
-      </div>
+      </Link>
           
       )
       }

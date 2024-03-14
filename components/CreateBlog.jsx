@@ -78,7 +78,9 @@ const CreateBlogPost = () => {
   return (
     <div >
       {/* <h1 style={{ textAlign: "center" }}>Text Editor In React JS</h1> */}
-      <div style={{ display: "grid", justifyContent: "center"}}>
+      <div className='w-[100%] flex items-center justify-center'>
+        
+        <div className='w-[100%] md:w-[700px] h-[90vh] lg:w-[800px]'>
         
          
         <ReactQuill
@@ -86,11 +88,11 @@ const CreateBlogPost = () => {
           modules={modules}
           formats={formats}
           onChange={handleProcedureContentChange}
-          style={{ height: "80vh",maxWidth:"800px" }}
+         className="h-[60vh]"
         >
         </ReactQuill>
-        
-      </div>
+        </div>
+        </div>
 
        <div className="flex items-center mt-[100px] justify-center w-[100%]">
           <button className="bg-black text-white rounded-[10px] p-4" onClick={handleUploadBlogData}>Submit</button>
