@@ -1,6 +1,9 @@
-"use client"
+'use client'
+
 import React, { Fragment, useEffect, useState } from 'react'
-import { useRouter, useSearchParams} from 'next/navigation';
+
+import { Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
 import 'quill/dist/quill.bubble.css'
 import dynamic from 'next/dynamic'; // Import dynamic from next/dynamic
 
@@ -10,8 +13,9 @@ const ReactQuill = dynamic(() => import('react-quill'), { // Dynamically import 
 
 const page = () => {
     const [blog,setBlog] = useState('');
-    const searchparmas = useSearchParams();
-    const blogid = searchparmas.get('id');
+    const searchParams = useSearchParams()
+ 
+    const blogid = searchParams.get('id');
     // console.log("Blogid",blogid);
 
     useEffect(()=>{
@@ -26,7 +30,7 @@ const page = () => {
 
 
   return (
-   <Fragment>
+   <Suspense>
     {
         blog ? 
         <div className='w-[100%] flex items-center justify-center'>
@@ -45,7 +49,7 @@ const page = () => {
       :
       <div>No Blog Found</div>
     }
-   </Fragment>
+   </Suspense>
   )
 }
 
