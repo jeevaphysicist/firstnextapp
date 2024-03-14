@@ -1,14 +1,15 @@
 "use client"
 import React, { Fragment, useEffect, useState } from 'react'
-import 'quill/dist/quill.bubble.css'
-import 'quill/dist/quill.snow.css'
-import ReactQuill from 'react-quill'
+// import 'quill/dist/quill.bubble.css'
+// import ReactQuill from 'react-quill'
 
 const Page = () => {
   const [blogs,setBlogs] = useState([]);
+
   useEffect(()=>{
         GetAllBlogs()
   },[])
+  
   const GetAllBlogs = async ()=>{
     let response = await fetch("/api/blog/new");
     const data = await response.json();
@@ -16,28 +17,7 @@ const Page = () => {
     console.log("data",data);
    }
 
-   var modules = {
-    toolbar:[
-      ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-      ['blockquote', 'code-block'],
-      ['link', 'image', 'video', 'formula'],
-    
-      [{ 'header': 1 }, { 'header': 2 }],               // custom button values
-      [{ 'list': 'ordered'}, { 'list': 'bullet' }, { 'list': 'check' }],
-      [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-      [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
-      [{ 'direction': 'rtl' }],                         // text direction
-    
-      [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-    
-      [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-      [{ 'font': [] }],
-      [{ 'align': [] }],
-    
-      ['clean']                                         // remove formatting button
-    ]
-  };
+   
   
   function extractFirstParagraph(htmlContent) {
     const parser = new DOMParser();
@@ -54,7 +34,7 @@ const Page = () => {
     <Fragment>
     <div className='text-[50px] px-10 h-[5vh] flex items-center justify-center'>Blogs</div>
     <div className='grid px-5 md:px-10 mt-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-10'>
-      {
+       {/* {
        blogs.length > 0 && blogs.map(post=>
        <div className='border '> 
         <ReactQuill
@@ -68,7 +48,7 @@ const Page = () => {
       </div>
           
       )
-      }
+      } */}
     </div>
     </Fragment>
   )
