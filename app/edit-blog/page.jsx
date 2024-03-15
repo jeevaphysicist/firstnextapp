@@ -1,9 +1,8 @@
 "use client"
 import React, { Fragment, useEffect, useState } from 'react';
-import CreateBlogPost from '@components/CreateBlog';
 import { Suspense } from 'react'
 import { useSearchParams ,useRouter } from 'next/navigation'
-import 'quill/dist/quill.bubble.css'
+import 'quill/dist/quill.snow.css'
 import dynamic from 'next/dynamic'; // Import dynamic from next/dynamic
 
 const ReactQuill = dynamic(() => import('react-quill'), { // Dynamically import ReactQuill
@@ -29,7 +28,7 @@ const CreateBlog = () => {
         // console.log("data",data);
         setEditBlogData(data.blogdata);
         let blogsize = calculateVariableSize(data.blogdata);
-    setBlogSize(blogsize);
+        setBlogSize(blogsize);
     }
 
  
@@ -99,10 +98,10 @@ const CreateBlog = () => {
 }
 
 
-
+ 
 
   return (
-   <Fragment>
+   <Suspense>
     {/* <div></div> */}
     <div >
       {/* <h1 style={{ textAlign: "center" }}>Text Editor In React JS</h1> */}
@@ -129,7 +128,7 @@ const CreateBlog = () => {
      
      
     </div>
-   </Fragment>
+   </Suspense>
   )
 }
 

@@ -26,4 +26,4 @@ export const auth = getAuth();
 export const provider = new GoogleAuthProvider();
 
 // Export the initialized Firebase app and analytics
-export { app, analytics, db };
+export { app, db };
