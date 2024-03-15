@@ -19,21 +19,12 @@ const Page = () => {
     let response = await fetch("/api/blog/new");
     const data = await response.json();
     setBlogs(data);
-    console.log("data",data);
+    // console.log("data",data);
    }
 
    
   
-  function extractFirstParagraph(htmlContent) {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(htmlContent, 'text/html');
-    const paragraphs = doc.querySelectorAll('p');
-    if (paragraphs.length > 0) {
-      return paragraphs[0].outerHTML;
-    } else {
-      return ''; // If no paragraphs found, return an empty string
-    }
-  }
+  console.log("blogs",blogs);
 
   return (
     <Fragment>
@@ -42,14 +33,8 @@ const Page = () => {
        {
        blogs.length > 0 && blogs.map(post=>
        <Link href={`/blog/q?id=${post._id}`} className='border '> 
-        <ReactQuill
-        value={extractFirstParagraph(post.blogdata)}
-        readOnly={true}
-        theme="bubble"
-        style={{ Width:"300px" ,height:"300px",border:"1px" }}
-        modules={{ toolbar: false }}
-      />
-        
+         <div><img src={post.coverimage} alt="coverimage..." /></div>
+         <div>{post.title}</div>        
       </Link>
           
       )

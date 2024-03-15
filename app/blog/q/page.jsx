@@ -35,7 +35,9 @@ const page = () => {
         blog ? 
         <div className='w-[100%] flex items-center justify-center'>
         
-         <div className='w-[100%] md:w-[700px] lg:w-[800px]'>
+        <div className='w-[100%] md:w-[700px] flex gap-5 flex-col mb-20 lg:w-[800px]'>
+        <h1 className='text-[50px] font-bold'>{blog.title}</h1>
+        <img src={blog.coverimage} alt="coverimage..." />
         <ReactQuill
         value={blog.blogdata}
         readOnly={true}

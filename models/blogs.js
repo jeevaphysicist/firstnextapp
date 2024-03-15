@@ -8,6 +8,14 @@ const BlogSchema = new Schema({
              blogdata:{
                 type:String,
                 required:[true,"Blog data is required"]
+               },
+            title:{
+                type: String, 
+                require:true
+               },
+            coverimage:{
+                type:String,
+                require:true
                }
 },{timestamps:true})
 
