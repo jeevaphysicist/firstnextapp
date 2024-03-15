@@ -27,7 +27,7 @@ export const  GET = async (req) =>{
   // console.log("get all user controlers");
     try{
        await ConnectToDB();
-        let blogs= await Blogs.find({});
+        let blogs= await Blogs.find({},'title coverimage');
          return new Response (JSON.stringify(blogs),{status:200});
     }
     catch(error){
